@@ -8,7 +8,7 @@ object InterviewBuild extends Build {
   lazy val buildSettings = Seq(
     organization := "interview",
     version      := "0.1-SNAPSHOT",
-    scalaVersion := "2.10.0"
+    scalaVersion := "2.9.2"
   )
   
   lazy val interview = Project(
@@ -30,7 +30,6 @@ object InterviewBuild extends Build {
     resolvers += "Twitter Repository" at "http://maven.twttr.com/",
     resolvers += "Akka Repository" at "http://akka.io/snapshots/"
   )
-
   }
 
 object Dependencies {
@@ -49,7 +48,7 @@ object Dependency {
     val Scalaz       = "6.0.4"
     val Logback      = "1.0.0"    
 	
-	val Scalatest    = "1.9.1"
+	  val Scalatest    = "1.8"
   }
 
   // Compile
