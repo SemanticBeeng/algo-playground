@@ -1,4 +1,1 @@
-interview
-=========
-
-Solving nice tricks from interview questions
+Solving nice programming interview questions
