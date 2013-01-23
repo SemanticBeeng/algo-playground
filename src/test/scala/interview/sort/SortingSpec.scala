@@ -32,4 +32,12 @@ class SortingSpec extends FlatSpec {
     assert(sortedList == list.sorted, "Sorted list = " + list + ", expected = " + list.sorted)
   }
 
+  "HeapSort sort" should "sort array" in {
+    val array = (1 to 10).map(_ => Random.nextInt(100)).toArray
+    HeapSort.sort(array)
+
+    assert(array.toList == array.sorted.toList, "Sorted array = " + array.toList + ", expected = " + array.sorted.toList)
+  }
+
+
 }
