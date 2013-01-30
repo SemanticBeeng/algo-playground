@@ -2,7 +2,7 @@ package interview.sort
 
 object QuickSort {
   def sort[T <% Ordered[T]](array: Array[T]) {
-    def exchange(i: Int, j: Int) {
+    def swap(i: Int, j: Int) {
       val v = array(i)
       array(i) = array(j)
       array(j) = v
@@ -14,10 +14,10 @@ object QuickSort {
       for (j <- p to r-1) {
         if (array(j) <= pivot) {
           i += 1
-          exchange(i, j)
+          swap(i, j)
         }
       }
-      exchange(i+1, r)
+      swap(i+1, r)
       i+1
     }
 
