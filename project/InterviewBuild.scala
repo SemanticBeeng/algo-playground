@@ -14,6 +14,8 @@ object InterviewBuild extends Build {
   lazy val root = Project("interview", file("."),
     settings = Project.defaultSettings ++ repositoriesSetting ++
       Seq(libraryDependencies ++= Dependencies.root) ++
+      Seq(scalacOptions += "-deprecation") ++
+      Seq(scalacOptions += "-Xlog-implicit-conversions") ++
       Seq(libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _))
   )
 
