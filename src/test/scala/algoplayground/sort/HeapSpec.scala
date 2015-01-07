@@ -1,4 +1,4 @@
-package interview.sort
+package algoplayground.sort
 
 import org.scalatest.FlatSpec
 import scala.Predef._

@@ -1,4 +1,4 @@
-package interview.string
+package algoplayground.string
 
 case class LCS(s1: String, s2: String, lcs: String)
 
@@ -18,8 +18,6 @@ object LongestCommonSubsequence {
         }
       }
     }
-
-
 
     var length = 0
     var idx = 0
@@ -43,5 +41,4 @@ object LongestCommonSubsequence {
       System.out.println("")
     }
   }
-
 }

@@ -1,4 +1,4 @@
-package interview.orderstatistics
+package algoplayground.orderstatistics
 
 import org.scalatest.FlatSpec
 import util.Random

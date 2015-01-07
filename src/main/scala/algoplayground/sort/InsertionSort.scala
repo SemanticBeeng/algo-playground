@@ -1,4 +1,4 @@
-package interview.sort
+package algoplayground.sort
 
 object InsertionSort {
   def sort[T <% Ordered[T]](array: Array[T]) {

@@ -1,4 +1,4 @@
-package interview.string
+package algoplayground.string
 
 import org.scalatest.FlatSpec
 

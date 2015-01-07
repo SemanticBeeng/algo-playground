@@ -1,4 +1,4 @@
-package interview.orderstatistics
+package algoplayground.orderstatistics
 
 import util.Random
 import annotation.tailrec

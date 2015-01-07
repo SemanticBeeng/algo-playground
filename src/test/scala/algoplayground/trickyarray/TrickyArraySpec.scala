@@ -1,10 +1,8 @@
-package interview.trickyarray
+package algoplayground.trickyarray
 
 import org.scalatest.FlatSpec
-import org.slf4j.LoggerFactory
 
 class TrickyArraySpec extends FlatSpec {
-  val log = LoggerFactory.getLogger(classOf[TrickyArraySpec])
 
   "A Tricky Array" should "reverse underlying array" in {
     val array = new TrickyArray(Array(0, 1, 2, 3))

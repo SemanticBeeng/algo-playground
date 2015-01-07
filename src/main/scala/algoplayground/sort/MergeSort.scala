@@ -1,4 +1,4 @@
-package interview.sort
+package algoplayground.sort
 
 
 object MergeSort {

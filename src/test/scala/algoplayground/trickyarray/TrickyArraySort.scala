@@ -1,10 +1,9 @@
-package interview.trickyarray
+package algoplayground.trickyarray
 
 import org.scalatest.FlatSpec
-import org.slf4j.LoggerFactory
+
 
 class TrickyArraySort extends FlatSpec {
-  val log = LoggerFactory.getLogger(classOf[TrickyArraySort])
 
   def sort[T](array: TrickyArray[T]) {
     val l = array.length
