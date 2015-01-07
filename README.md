@@ -1,1 +1,1 @@
-Solving nice programming interview questions
+Algprithms Playground
