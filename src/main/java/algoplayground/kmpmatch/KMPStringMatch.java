@@ -21,6 +21,8 @@ public class KMPStringMatch {
 
         while (start + idx < text.length) {
 
+            System.out.println("Start = "+start+"; Idx = "+idx);
+
             // Continue matching
             if (text[start + idx] == pattern[idx]) {
                 idx++;
@@ -38,6 +40,8 @@ public class KMPStringMatch {
             // Matched full pattern
             if (idx == pattern.length) {
                 System.out.println("Found pattern at start index: " + start);
+                System.out.println("Matched @ Start = "+start+"; Idx = "+idx);
+
                 // Get longest common prefix for last matched symbol
                 Integer longestCommonPrefix = lcps[idx-1];
                 // Start from that value
