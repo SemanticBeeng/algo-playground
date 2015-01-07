@@ -1,6 +1,8 @@
 package algoplayground.trickyarray
 
 /**
+ * http://www.careercup.com/question?id=14970662
+ *
  * For a given array size is know but elements using index is not accessible.
  * Two given functions are below:
  * *
