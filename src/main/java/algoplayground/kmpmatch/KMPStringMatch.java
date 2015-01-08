@@ -1,10 +1,12 @@
 package algoplayground.kmpmatch;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class KMPStringMatch {
 
-    public static void stringMatch(char[] pattern, char[] text) {
+    public static Integer[] stringMatch(char[] pattern, char[] text) {
         System.out.println(
                 "Find pattern: " + String.copyValueOf(pattern) +
                 "; In text: " + String.copyValueOf(text));
@@ -12,6 +14,9 @@ public class KMPStringMatch {
         Integer[] lcps = longestCommonPrefixAndSuffix(pattern);
         System.out.println("Longest common prefix and suffix:");
         System.out.println(Arrays.deepToString(lcps));
+
+        // Matches storage
+        List<Integer> matches = new ArrayList<>();
 
         // Start position in text
         int start = 0;
@@ -42,6 +47,8 @@ public class KMPStringMatch {
                 System.out.println("Found pattern at start index: " + start);
                 System.out.println("Matched @ Start = "+start+"; Idx = "+idx);
 
+                matches.add(start);
+
                 // Get longest common prefix for last matched symbol
                 Integer longestCommonPrefix = lcps[idx-1];
                 // Start from that value
@@ -49,6 +56,8 @@ public class KMPStringMatch {
                 idx = longestCommonPrefix;
             }
         }
+
+        return matches.toArray(new Integer[matches.size()]);
     }
 
     public static Integer[] longestCommonPrefixAndSuffix(char[] text) {
