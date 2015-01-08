@@ -69,13 +69,24 @@ public class KMPStringMatch {
                     "; LCP = " + Arrays.deepToString(lcp));*/
 
             if (text[i] == text[len]) {
+                // If characters match move forward
                 len++;
                 lcp[i] = len;
                 i++;
             } else if (len > 0) {
+                // if not, but we already found substring
+                // with length > 0 we can use this substring's
+                // longest common prefix to continue matching
+                // Example:
+                // AABAAAA
+                //   ^  ^
+                // len  i
+                // len == 2; i == 5
                 /*System.out.println("fallback");*/
                 len = lcp[len - 1];
-            } else {
+            } else { // len == 0
+                // at the end if we didn't found prefix to
+                // continue from we set lcp = 0 and move forward
                 /*System.out.println("reset");*/
                 lcp[i] = 0;
                 i++;
