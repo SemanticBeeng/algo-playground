@@ -6,9 +6,9 @@ organization := "algoplayground"
 
 licenses in ThisBuild += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0"))
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.8"
 
-crossScalaVersions in ThisBuild := Seq("2.10.4", "2.11.4")
+crossScalaVersions in ThisBuild := Seq("2.10.5", "2.11.8")
 
 scalacOptions += "-deprecation"
 
@@ -24,7 +24,7 @@ resolvers ++= Seq(
 // Test Dependencies
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest"   % "2.2.0" % "test"
+  "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 )
 
 
