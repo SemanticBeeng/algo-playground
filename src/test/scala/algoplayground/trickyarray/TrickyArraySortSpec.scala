@@ -3,7 +3,7 @@ package algoplayground.trickyarray
 import org.scalatest.FlatSpec
 
 
-class TrickyArraySort extends FlatSpec {
+class TrickyArraySortSpec extends FlatSpec {
 
   def sort[T](array: TrickyArray[T]) {
     val l = array.length
