@@ -8,7 +8,14 @@ class RowTraversalSpec extends FlatSpec {
   //    1
   //   / \
   //  2   3
-  val tree1 = TreeNode(1, Some(TreeNode(2, None, None)), Some(TreeNode(3, None, None)))
+  val tree1 = TreeNode(1,
+    l = Some(TreeNode(2,
+      l = None,
+      r = None)),
+    r = Some(TreeNode(3,
+      l = None,
+      r = None))
+  )
 
   "RowTraversal" should "compute row sum" in {
     val sum: (Int, Int) => Int = _ + _
