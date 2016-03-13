@@ -17,7 +17,7 @@ And given a target range R (e.g. R = (3, 13) - meaning the range going from 3 to
   "MinOverlap" should "work" in {
     val intervals = Seq((1, 4), (30, 40), (20, 91) ,(8, 10), (6, 7), (3, 9), (9, 12), (11, 14)).map { case (l, r) => Interval(l, r)}
     val interval = Interval(3, 13)
-    val set = MinOverlap.minOverlap(intervals, interval)
+    val set = MinOverlap.greedyMinOverlap(intervals, interval)
     assert(set.isDefined)
     assert(set.get == Seq((3, 9), (9, 12), (11, 14)).map { case (l, r) => Interval(l, r) })
   }
