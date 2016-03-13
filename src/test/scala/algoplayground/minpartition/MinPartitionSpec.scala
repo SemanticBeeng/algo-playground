@@ -1,6 +1,5 @@
-package algoplayground
+package algoplayground.minpartition
 
-import algoplayground.minpartition.MinPartition
 import org.scalatest.FlatSpec
 
 
