@@ -46,6 +46,8 @@ object WaterFill {
 
   def main(args: Array[String]): Unit = {
     println(value(arr))
+    println(value(Array(10, 9, 8, 7, 5, 4, 3, 2, 1)))
+    println(value(Array(2,5,3,3,7,2,7,6)))
   }
 
 }
