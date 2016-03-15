@@ -25,27 +25,27 @@ object MinimizeArray extends App {
   def minimize(input: Seq[Int], k: Int): Int = {
 
     def run(seq: Seq[Int]): Int = {
-      if (seq.isEmpty) return 0
-      if (seq.length < 3) return input.length
+      if (seq.length < 3) return seq.length
 
       val withSplit = {
         val splits = for {
-          i <- 0 until seq.length - 1
-          j <- i + 0 until seq.length
-          if seq.head + k == seq(i) && seq(i) + k == seq(j)
-        } yield (i, j)
+          i <- 1     until seq.length - 1
+          j <- i + 1 until seq.length
+          if seq.head + k == seq(i)        &&
+             seq(i) + k == seq(j)          &&
+             run(seq.slice(1, i))     == 0 &&
+             run(seq.slice(i + 1, j)) == 0
+        } yield j
 
-        if (splits.isEmpty) seq.length
-
-        else splits.map { case (i, j) =>
-          run(seq.slice(1, i)) +
-          run(seq.slice(i + 1, j)) +
-          run(seq.slice(i + j + 1, seq.length))
-        }.min
+        if (splits.isEmpty) {
+          seq.length
+        } else {
+          splits.map(j => run(seq.drop(j + 1))).min
+        }
       }
 
       val withoutSplit = 1 + run(seq.tail)
-      Math.min(withSplit, withoutSplit)
+      Math.min(withoutSplit, withSplit)
     }
 
     run(input)
