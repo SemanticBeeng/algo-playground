@@ -28,30 +28,41 @@ object CoinsPath extends App {
 
   val map = Array(
     Array(1, 2, 3),
-    Array(4, 5, 6),
+    Array(4, 6, 5),
     Array(3, 2, 1)
   )
 
-  val cnt = new AtomicLong(0)
-
   def findPath(): Seq[Seq[Int]] = {
 
-    val memo = mutable.Map.empty[(Int, Int), Seq[Seq[Int]]]
+    val memo = mutable.Map.empty[(Int, Int, Int), Seq[Seq[Int]]]
 
-    def path(row: Int, col: Int): Seq[Seq[Int]] = {
-      cnt.incrementAndGet()
-      if (row >= n || col >= n) return Seq.empty
-      if (row == n - 1 && col == n - 1) return Seq(Seq(map(row)(col)))
+    def path(row: Int, col: Int, k: Int): Seq[Seq[Int]] = {
+      if (row >= n || col >= n || k <= 0) return Seq.empty
+      if (row == n - 1 && col == n - 1 && k == map(row)(col)) return Seq(Seq(map(row)(col)))
 
-      val rightMove = memo.getOrElseUpdate((row, col + 1), path(row, col + 1))
-      val downMove = memo.getOrElseUpdate((row + 1, col), path(row + 1, col))
+      val rightMove = memo.getOrElseUpdate((row, col + 1, k - map(row)(col)), path(row, col + 1, k - map(row)(col)))
+      val downMove = memo.getOrElseUpdate((row + 1, col, k - map(row)(col)), path(row + 1, col, k - map(row)(col)))
       (rightMove ++ downMove).map(map(row)(col) +: _)
     }
 
-    path(0, 0).map(map(0)(0) +: _)
+    path(0, 0, k)
   }
 
+  def countPath(): Int = {
+
+    def count(row: Int, col: Int, k: Int): Int = {
+      if (row >= n || col >= n || k <= 0) return 0
+      if (row == n - 1 && col == n - 1 && k == map(row)(col)) return 1
+
+      val rightMove = count(row, col + 1, k - map(row)(col))
+      val downMove = count(row + 1, col, k - map(row)(col))
+      rightMove + downMove
+    }
+    count(0, 0, k)
+  }
+
+
+  println(countPath())
   findPath().filter(_.sum == k) .foreach(println)
-  println(cnt.get)
 
 }
