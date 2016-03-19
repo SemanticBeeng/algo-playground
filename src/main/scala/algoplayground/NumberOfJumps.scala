@@ -2,7 +2,7 @@ package algoplayground
 
 import scala.collection.mutable
 
-object NumberOfJumps {
+object NumberOfJumps extends App {
 
   /**
     * Given an array of integers where each element represents the max number of steps that can be made
@@ -26,8 +26,6 @@ object NumberOfJumps {
     run(input, 0)
   }
 
-  def main(args: Array[String]): Unit = {
-    println(jumps(Seq(1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9)))
-  }
+  println(jumps(Seq(1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9)))
 
 }

@@ -16,7 +16,8 @@ package algoplayground.wildcard
  * Write an algorithm to match glob with test.
  * You MAY NOT use regular expressions
  */
-object WildCardMatch {
+object WildCardMatch extends App {
+
   def matchPattern(pattern: String, string: String): Boolean = {
 
     // Nothing to match
@@ -49,4 +50,15 @@ object WildCardMatch {
 
     sys.error(s"Should not be here. Pattern: $pattern. String: $string")
   }
+
+  assert(WildCardMatch.matchPattern("a?*b", "abaaaaaaabbbbb"))  // Yes
+  assert(WildCardMatch.matchPattern("g*ks", "geeks"))           // Yes
+  assert(WildCardMatch.matchPattern("ge?ks*", "geeksforgeeks")) // Yes
+  assert(!WildCardMatch.matchPattern("g*k", "gee"))             // No because 'k' is not in second
+  assert(!WildCardMatch.matchPattern("*pqrs", "pqrst"))         // No because 't' is not in first
+  assert(WildCardMatch.matchPattern("abc*bcd", "abcdhghgbcd"))  // Yes
+  assert(!WildCardMatch.matchPattern("abc*c?d", "abcd"))        // No because second must have 2 instances of 'c'
+  assert(WildCardMatch.matchPattern("*c*d", "abcd"))            // Yes
+  assert(WildCardMatch.matchPattern("*?c*d", "abcd"))           // Yes
+
 }

@@ -1,7 +1,7 @@
 package algoplayground
 
 
-object ConsecutiveIntegers {
+object ConsecutiveIntegers extends App {
 
   def numberOfConsecutiveIntegers(arr: Array[Int]): Int = {
 
@@ -46,5 +46,13 @@ object ConsecutiveIntegers {
 
     arr.slice(maxStart, maxStart + maxLength)
   }
+
+  assert(1 == ConsecutiveIntegers.numberOfConsecutiveIntegers(Array(1, 0, 4, 2, 6)))
+  assert(2 == ConsecutiveIntegers.numberOfConsecutiveIntegers(Array(1, 2, 4, 2, 6)))
+  assert(3 == ConsecutiveIntegers.numberOfConsecutiveIntegers(Array(1, 2, 3, 2, 6)))
+
+  assert(Seq(1) == ConsecutiveIntegers.consecutiveIntegers(Array(1, 0, 4, 2, 6)).toSeq)
+  assert(Seq(1, 2) == ConsecutiveIntegers.consecutiveIntegers(Array(1, 2, 4, 2, 6)).toSeq)
+  assert(Seq(1, 2, 3) == ConsecutiveIntegers.consecutiveIntegers(Array(1, 2, 3, 2, 6)).toSeq)
 
 }
