@@ -9,7 +9,7 @@ trait Triplets {
 
 }
 
-object RecursiveTriplets extends Triplets {
+object RecursiveTriplets extends Triplets with App {
   def tuplets(arr: Array[Int], from: Int, to: Int, sum: Int): Seq[(Int, Int)] = {
     if (from >= to) Seq.empty
     else arr(from) + arr(to) match {
@@ -24,9 +24,11 @@ object RecursiveTriplets extends Triplets {
 
     tuplets(arr, 1, arr.length - 1, sum - arr(0)).map { case (l, r) => (arr(0), l, r) } ++ triplets(arr.tail, sum)
   }
+
+  println(triplets(Array(3, 3, 3, 4, 4, 1, 0, 9, 0, 7).sorted, 9))
 }
 
-object SimpleTriplets extends Triplets {
+object SimpleTriplets extends Triplets with App {
 
   /**
     * Given an array and a value, find if there is a triplet in array whose sum is equal to the given value.
@@ -52,6 +54,10 @@ object SimpleTriplets extends Triplets {
     }
     out.result()
   }
+
+  val arr = Array(1, 2, 5, -2, 6, 7, 4, 3, 9).sorted
+  println(arr.toSeq)
+  print(tuplets(arr, 0, arr.length - 1, 7))
 
   def triplets(arr: Array[Int], sum: Int): Seq[(Int, Int, Int)] = {
     val out = Seq.newBuilder[(Int, Int, Int)]
